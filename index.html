@@ -18,78 +18,18 @@
   </head>
   <body>
 
-    <ons-splitter>
-      <ons-splitter-side id="menu" side="right" width="220px" collapse swipeable>
-          <ons-page>
-              <ons-list style="background: black;">
-                  <ons-list-header class="menu_header">View by Entertainment</ons-list-header>
-                  <ons-list-item tappable><img class="logoenter" src="assets/img/1.png">Entertainment</ons-list-item>
-                  <ons-list-item tappable><img class="logoenter" src="assets/img/2.png">Entertainment</ons-list-item>
-                  <ons-list-item tappable><img class="logojyp" src="assets/img/3.png">Entertainment</ons-list-item>
-                  <ons-list-item tappable><img class="logoenter" src="assets/img/4.png">Entertainment</ons-list-item>
-                  <ons-list-item tappable><img class="logoenter" src="assets/img/5.png">Entertainment</ons-list-item>
-                  <ons-list-item tappable><img class="logoenter" src="assets/img/6.png">Entertainment</ons-list-item>
-                  <ons-list-item tappable><img class="logoenter" src="assets/img/7.png">Entertainment</ons-list-item>
-
-                  <ons-list-item tappable>Other</ons-list-item>
-              </ons-list>
-          </ons-page>
-      </ons-splitter-side>
-      <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
-  </ons-splitter>
-
-  <template id="home.html">
-    <ons-page>
-        <ons-toolbar>
-            <div class="left">
-                <ons-back-button id="back"></ons-back-button>
-            </div>
-            <div class="right">
-                <ons-toolbar-button onclick="fn.open()">
-                    <ons-icon icon="fa-bars" style="color: #EC1D8F;"></ons-icon>
-                </ons-toolbar-button>
-            </div>
-            <div class="center">
-                <img class="logo" src="assets/img/Logo.png">
-            </div>
-        </ons-toolbar>
-
-        <ons-page id="home">
-
-            <ons-tabbar swipeable position="auto">
-                <ons-tab page="views/home.html" class="bg-title">
-                    <ons-icon icon="md-home,material:md-home" size="25px"></ons-icon>
-                </ons-tab>
-                <ons-tab page="views/search.html" class="bg-title">
-                    <ons-icon icon="md-search,material:md-search" size="25px"></ons-icon>
-                </ons-tab>
-                <ons-tab page="views/cart.html" class="bg-title">
-                    <ons-icon icon="md-shopping-cart" size="25px"></ons-icon>
-                </ons-tab>
-                <ons-tab page="views/profile.html" class="bg-title">
-                    <ons-icon icon="md-account-circle" size="25px"></ons-icon>
-                </ons-tab>
-
-            </ons-tabbar>
-        </ons-page>
-
-    </ons-page>
-</template>
-
-      <!-- <div class="container">
-          <div class="display-2">Home</div>
-          <div class="">Welcome, <span id="username"></span></div>
+          <div class="container">
+            <div class="display-2">Home</div>
+            <div class="">Welcome, <span id="username"></span></div>
+            <p>
+              <div id="displayname"></div>           
+          </p>
           <p>
-            <div id="displayname"></div>           
-        </p>
-        <p>
-            <div><img id="photo" src="" alt="" srcset=""></div>
-        </p>
-          <button type="button" id="signout" class="btn btn-primary">Sign Out</button>
-      </div> -->
-
-      
-
+              <div><img id="photo" src="" alt="" srcset=""></div>
+          </p>
+            <button type="button" id="signout" class="btn btn-primary">Sign Out</button>
+        </div>
+  
     <!--=========================================== jQuery first, then Popper.js, then Bootstrap JS ===========================================-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
