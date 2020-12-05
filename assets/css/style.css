@@ -1,0 +1,368 @@
+
+.toolbar {
+    background-color: black;
+}
+
+.tabbar {
+    background-color:black;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+.bg-title {
+    background-color: black;
+}
+
+.img {
+    width: 100%;
+    height: 550px;
+}
+
+
+.img-search {
+    width: 100px;
+    height: auto;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.imglike {
+    padding: 5px;
+    width: 100px;
+  }
+
+.mt-5 {
+    margin-top: 10px;
+}
+
+.pd {
+    padding: 10px;
+}
+
+.icon {
+    font-size: 28px;
+    color: chocolate;
+}
+
+.icon-center {
+    text-align: center;
+}
+
+.left {
+    text-align: center;
+}
+
+.toolbar__left,
+.toolbar__right,
+.tabbar {
+    background-color: #000000;
+}
+
+/*-----------หน้า Home-----------*/  
+
+.carousel ons-carousel-item img {
+    width: 100%;
+    max-height: 200px
+  }
+
+  .product_list {
+    margin: 10px;
+    height: 130px;
+    padding-top: 30px;
+  }
+
+  .product_list img {
+    width: 90%
+  }  
+
+/*-----------หน้า Movie_Details-----------*/
+
+.area-imgDetail{
+  margin-top: 0.5rem;
+  padding-bottom: 3rem;
+  text-align: center;
+}
+
+.imgDetail{
+  width: 70%;
+}
+
+.area-btn{
+  padding-top: 1rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.cart-btn{
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  background-color: #EC1D8F;
+  color: white;
+}
+
+.buy-btn{
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  background-color:rgb(53, 53, 53);
+  color: white;
+}
+
+.trailer {
+    height: 190px;
+    position: relative;
+  }
+
+  .trailer img {
+    width: 100%;
+    height: 100%
+  }
+
+  .trailer ons-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    margin-top: -25px;
+    margin-left: -25px;
+    color: #666;
+    background: white;
+    width: 50px;
+    text-align: center;
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+
+  .trailer ons-icon:active {
+    opacity: 1;
+  }
+
+  .movie_info {
+    padding: 0px 10px;
+    font-size: 14px;
+  }
+
+  .movie_general_info {
+    width: 250px;
+    margin-bottom: 15px;
+    color: gray;
+  }
+
+  .movie_synopsis {
+    text-align: justify;
+    margin-bottom: 10px;
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+    margin-top: 1rem;
+  }
+  .movie_cast {
+    font-size: 22px;
+    font-weight: bold;
+    color: #EC1D8F;
+    text-align: justify;
+    margin-bottom: 10px;
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+  }
+
+  .detail_product {
+    font-size: 14px;
+    color: white;
+    text-align: justify;
+    margin-bottom: 10px;
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+  }
+
+  .stars {
+    white-space: nowrap;
+    margin-right: 15px
+  }
+
+  /* Chat containers */
+  .container {
+    border: 2px solid black;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+/* Darker chat container */
+.darker {
+  border-color: black;
+  background-color: #ddd;
+}
+
+/* Clear floats */
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Style images */
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+/* Style the right image */
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+/* Style time text */
+.time-right {
+  float: right;
+  color:black;
+}
+
+/* Style time text */
+.time-left {
+  float: left;
+  color:grey;
+}
+
+
+
+.logo {
+  padding: 10px;
+  width: 96px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logoenter {
+  padding: 10px;
+  width: 50px;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.logojyp {
+  padding: 10px;
+  width: 50px;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.logo2 {
+    padding: 10px;
+    width: 10%;
+    display: block;
+}
+
+
+
+/* body */
+
+body{
+font-family: 'SFProDisplay', SFProDisplay-Regular;
+  }
+
+.page {
+  color: white;
+}
+
+.page__background {
+  background-color: black;
+}
+
+.toolbar:not(.toolbar--transparent) {
+  background-color: black;
+}
+
+.toolbar-button {
+  color: white;
+}
+
+.list-item {
+  color: white;
+}
+
+
+.bg-title {
+  background-color: black;
+}
+
+
+/*Search */
+
+.marginAddon{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.detail_search {
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.button {
+  transition-duration: 0.1s;
+  background-color: rgb(73, 73, 73);
+  width: 100px;
+  height: 35px;
+  font-size: 14px;
+  margin-top: 0.5rem;
+  padding: 0.2rem 0 0.2rem 0;
+  width: 90%;
+  height: 35px;
+}
+.button:hover {
+  background-color: #EC1D8F; /* Green */
+  color: white;
+  font-size: 14px;
+}
+
+.containerH {
+  border-radius: 10px;
+  /* border: dashed; */
+  height: fit-content;
+  background-color: gainsboro;
+  margin-bottom: 10px;
+}
+
+.containerH div {
+  font-size: 14px;
+  margin-left: 0.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
