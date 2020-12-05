@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Sign In</title>
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+    <!--===============================================================================================-->	
+        <link rel="stylesheet" type="text/css" href="assets/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="assets/css/signinalign.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/signin.css">
+    <!--===============================================================================================-->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <!-- <div class="container">
+        <div class="display-2">Sign IN</div>
+        <div class="form-group">
+            <label for="">Username</label>
+            <input type="email" class="form-control" name="" id="email" aria-describedby="emailHelpId" placeholder="">
+            <small id="emailHelpId" class="form-text text-muted">Help text</small>
+        </div>      
+        <div class="form-group">
+          <label for="">Password</label>
+          <input type="password" class="form-control" name="" id="password" placeholder="">
+        </div>
+        <button type="button" class="btn btn-primary" id="signinemail">Sign In</button>
+        <button type="button" class="btn btn-danger" id="signingoogle">Sign In with Google</button>
+        <p>
+            <div class="alert alert-danger">
+                <span id="error"></span>
+            </div>
+        </p>
+    </div> -->
+
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-35 p-b-30">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-55">
+						<div class="fhashlight">
+                            <img class="logo6" src="assets/images/Logo.png">
+                        </div>
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" placeholder="Email" id="email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-envelope"></span>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+						<input class="input100" type="password" name="pass" placeholder="Password" id="password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-lock"></span>
+						</span>
+					</div>
+
+					<div class="contact100-form-checkbox m-l-4">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Remember me
+						</label>
+					</div>
+					
+					<div class="container-login100-form-btn p-t-25">
+						<button class="login100-form-btn" id="signinemail">
+							Login
+						</button>
+					</div>
+
+					<div class="text-center w-full p-t-20 p-b-22">
+						<span class="txt1">
+							Or login with
+						</span>
+					</div>
+
+					<a href="#" class="btn-face m-b-10">
+						<i class="fa fa-facebook-official"></i>
+						Facebook
+					</a>
+
+					<a href="#" class="btn-google m-b-10" id="signingoogle">
+						<img src="assets/images/icons/icon-google.png" alt="GOOGLE">
+						Google
+					</a>
+
+					<div class="text-center w-full p-t-50">
+						<span class="txt1">
+							Not a member?
+						</span>
+
+						<a class="txt1 bo1 hov1" href="#">
+							Sign up now							
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+    </div>
+    
+
+
+    <!--=========================================== jQuery first, then Popper.js, then Bootstrap JS ===========================================-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- ======================================================================================================================================================================================================= -->
+
+    <!--======== The core Firebase JS SDK is always required and must be listed first ========-->
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+    <!--======================================================================================-->
+    
+    <!--==============Import Javascript==============-->
+    <script src="/js/firebase.js"></script>
+    <script src="/js/signin.js"></script>
+    <!--=============================================-->
+
+    <!--===============================================================================================-->	
+	<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="assets/vendor/bootstrap/js/popper.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="assets/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+  </body>
+</html>
