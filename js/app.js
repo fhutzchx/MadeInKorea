@@ -71,7 +71,7 @@ function openproductDetails(id) {
   const newsearchText = searchText.replace(/ /g, "");
 
   $("#searchItem").empty();
-  db.collection("search").get().then((querySnapshot) => {
+  db.collection("product").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
 
       const productname = doc.data().name;
@@ -116,11 +116,11 @@ function openproductDetails(id) {
         <ons-row class="rowmagin se" id="${doc.data().name}"> 
         <ons-row style="margin: 5px;">
             <ons-col class="text-center">
-            <img src="${doc.data().poster}" width="75%" style="margin: 5px 5px;" alt="">
+            <img src="${doc.data().posterURL}" width="75%" style="margin: 5px 5px;" alt="">
             </ons-col>
         <ons-col>
-            <p style="font-size:18px">${doc.data().name} (${doc.data().years}) </p>
-            <p class="detail_search">${doc.data().plot}</p>
+            <p style="font-size:18px">${doc.data().name}</p>
+            <p class="detail_search">${doc.data().description}</p>
             <p style="font-size:15px">`+ star +`</p>
             </ons-col>
       </ons-row>`
