@@ -1,28 +1,159 @@
 <ons-page id="profile">
-    <ons-list>
-        <ons-list-item>
-
-            <div class="container">
-                <div class="display-2"></div>
-                <div class=""><span id="username"></span></div>
-                <p>
-                <div id="displayname"></div>
-                </p>
-                <p>
-                <div><img id="photo" src="" alt="" srcset=""></div>
-                </p>
-                <button type="button" id="signout" class="btn btn-primary">Sign Out</button>
+    <div class="col-md-3">
+        <div class="profile-sidebar">
+            <div class="profile-userpic">
+                <img class="logo" id="photo" class="img-responsive" alt="">
             </div>
-        </ons-list-item>
-        <ons-list-header>My Account</ons-list-header>
-        <ons-list-item>My List</ons-list-item>
-        <ons-list-item onclick=window.location.href="/views/account_detail.html">Account</ons-list-item>
-        <ons-list-item>Notifications</ons-list-item>
-        <ons-list-item>Setting</ons-list-item>
-        <ons-list-item>Privacy</ons-list-item>
-        <ons-list-item>Help</ons-list-item>
-        <ons-list-item>About</ons-list-item>
-    </ons-list>
+            
+            <div class="profile-usertitle">
+                <span id="username"></span>
+                <div class="profile-usertitle-job" id="displayname">
+                </div>
+            </div>
+    
+            <div class="profile-userbuttons">
+                <button type="button" class="btn btn-success btn-sm">Follow</button>
+                <button type="button" class="btn btn-danger btn-sm">Message</button>
+            </div>
+    
+            <div class="profile-usermenu">
+                <ul class="nav">
+                    <li>
+                        <a href="#">
+                        <i class="glyphicon glyphicon-heart"></i>
+                        Favourite </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        <i class="glyphicon glyphicon-user"></i>
+                        Account</a>
+                    </li>
+                    <li>
+                        <a href="#" >
+                        <i class="glyphicon glyphicon-ok"></i>
+                        Delivery </a>
+                    </li>
+                    <li>
+                        <a href="#" >
+                        <i class="glyphicon glyphicon-inbox"></i>
+                        Notifications </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        <i class="glyphicon glyphicon-flag"></i>
+                        Help </a>
+                    </li>
+                    <li>
+                        <a href="login.html" id="signout">
+                        <i class="glyphicon glyphicon-log-out" id="signout"></i>
+                        Sign Out </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- END MENU -->
+        </div>
+    </div>
+
+<style>
+
+body {
+background: black;
+}
+
+.profile-userpic img {
+float: none;
+margin: 0 auto;
+width: 50%;
+height: 50%;
+-webkit-border-radius: 50% !important;
+-moz-border-radius: 50% !important;
+border-radius: 50% !important;
+}
+
+.profile-usertitle {
+text-align: center;
+margin-top: 20px;
+}
+
+.profile-usertitle-name {
+color:white;
+font-size: 16px;
+font-weight: 600;
+margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+text-transform: uppercase;
+color: white;
+font-size: 15px;
+font-weight: 600;
+margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+text-align: center;
+margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+text-transform: uppercase;
+font-size: 11px;
+font-weight: 600;
+padding: 6px 15px;
+margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+margin-right: 0px;
+}
+
+.profile-usermenu {
+margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+border-bottom: 1px solid black;
+}
+
+.profile-usermenu ul li:last-child {
+border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+color:white;
+font-size: 17px;
+font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+margin-right: 8px;
+font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+background-color: black;
+color: #EC1D8F;
+}
+
+.profile-usermenu ul li.active {
+border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+color:#EC1D8F;
+background-color: black;
+border-left: 2px solid #EC1D8F;
+margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+padding: 20px;
+background:black;
+min-height: 460px;
+}
+
+</style>
 
 
 </ons-page>

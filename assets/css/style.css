@@ -345,7 +345,6 @@ font-family: 'SFProDisplay', SFProDisplay-Regular;
 
 .containerH {
   border-radius: 10px;
-  /* border: dashed; */
   height: fit-content;
   background-color: gainsboro;
   margin-bottom: 10px;
@@ -354,6 +353,11 @@ font-family: 'SFProDisplay', SFProDisplay-Regular;
 .containerH div {
   font-size: 14px;
   margin-left: 0.5rem;
+}
+
+.photoproduct {
+  height: fit-content;
+  margin-bottom: 10px;
 }
 
 

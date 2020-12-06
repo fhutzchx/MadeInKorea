@@ -41,7 +41,7 @@ function getRecommend(){
         const Result = ` 
 
         <div class="col-6 p-1">
-               <div class="containerH"> 
+               <div class="photoproduct"> 
                     <div class="d-flex align-items-end">
                       <img src="${doc.data().posterURL}" style= "width:100%">
                     </div>
