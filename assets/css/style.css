@@ -81,6 +81,11 @@
     width: 90%
   }  
 
+  .photoproduct {
+    height: fit-content;
+    margin-bottom: 10px;
+  }
+
 /*-----------หน้า Movie_Details-----------*/
 
 .area-imgDetail{
@@ -355,10 +360,15 @@ font-family: 'SFProDisplay', SFProDisplay-Regular;
   margin-left: 0.5rem;
 }
 
-.photoproduct {
-  height: fit-content;
-  margin-bottom: 10px;
+.photoprofile {
+  padding: 10px;
+  width: 0px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+
 
 
 
