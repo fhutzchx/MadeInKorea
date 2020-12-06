@@ -1,0 +1,27 @@
+<ons-page id="search"> 
+    <ons-navigator swipeable id="myNavigator_search" page="page2.html"></ons-navigator>
+    <template id="page2.html">
+       <ons-page id="search1">
+          <p style="text-align: center; margin-top: 10px;">
+             <ons-search-input id="searchInput" placeholder="Search" onchange="getfromSearch()"></ons-search-input>
+          </p>
+          <ons-carousel item-width="115px" style="text-align: center; padding-left: 1rem;margin-top: 0.8rem;"
+                swipeable auto-scroll overscrollable >
+                <ons-carousel-item class="marginAddon">
+                    <button type="button" class="button" id="SM" >SM</button>
+                </ons-carousel-item>
+                <ons-carousel-item class="marginAddon">
+                    <button type="button" class="button" id="YG" >YG</button>
+                </ons-carousel-item>
+                <ons-carousel-item class="marginAddon">
+                    <button type="button" class="button" id="JYP" >JYP</button>
+                </ons-carousel-item>
+                <ons-carousel-item class="marginAddon">
+                    <button type="button" class="button" id="Bighit" >BigHit</button>
+                </ons-carousel-item>
+    </ons-carousel>
+    <br>
+             <ons-row id="searchItem"></ons-row>
+       </ons-page>
+    </template>  
+ </ons-page>

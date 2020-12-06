@@ -2,14 +2,15 @@ const db = firebase.firestore();
 
 // Home
 $(function() {
-  checkUserLogin();
     document.addEventListener('init', function(event) {
         var page = event.target;
-         if (page.id === "home") {
+         if (page.id === "home1") {
           getAdvertising();
           getRecommend();
         }else if (page.id ==="search1"){
           getEntertainment();
+        }else if(page.id ==="profile"){
+          getProfile();
         }
     });
     document.querySelector('ons-tabbar').addEventListener('reactive', function (event) {
@@ -39,10 +40,10 @@ function getRecommend(){
       querySnapshot.forEach(function (doc) {
         const Result = ` 
 
-        <div class="col-4">
-               <div class="product_list"> 
-                    <div id="${doc.data().name}" class="d-flex align-items-end">
-                      <img src="${doc.data().posterURL}">
+        <div class="col-6 p-1">
+               <div class="containerH"> 
+                    <div class="d-flex align-items-end">
+                      <img src="${doc.data().posterURL}" style= "width:100%">
                     </div>
                </div>
         </div> `
