@@ -1,5 +1,5 @@
 <ons-page id="search"> 
-    <ons-navigator swipeable id="myNavigator_search" page="page2.html"></ons-navigator>
+    <ons-navigator swipeable id="Navigator_search" page="page2.html"></ons-navigator>
     <template id="page2.html">
        <ons-page id="search1">
           <p style="text-align: center; margin-top: 10px;">
@@ -21,7 +21,7 @@
                 </ons-carousel-item>
     </ons-carousel>
     <br>
-             <ons-row id="searchItem"></ons-row>
+             <ons-row id="searchItem" onclick="getproductDetail(this.id)"></ons-row>
        </ons-page>
     </template>  
  </ons-page>
