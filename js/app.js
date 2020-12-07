@@ -223,40 +223,15 @@ function getproductDetail(id) {
     
 
         <div class="area-btn">
-            <ons-button type="button" id="btnPlayFav" class="cart-btn btn-lg btn-block">ADD TO CART</ons-button>
+            <button type="button" id="btnPlayFav" class="cart-btn btn-lg btn-block">ADD TO CART</button>
             <div id="showVideoFav"></div>
         </div>
 
         <div class="area-btn">
-            <ons-button type="button" id="btnPlayFav" class="buy-btn btn-lg btn-block">BUY WITH <i class="fa fa-google fa-fw"></i> PAY</ons-button>
+            <button type="button" id="btnPlayFav" class="buy-btn btn-lg btn-block">BUY WITH <i class="fa fa-google fa-fw"></i> PAY</button>
             <div id="showVideoFav"></div>
         </div>
 
-
-        <div class="movie_list">
-            <div class="detail_product">You might also Like</div>
-            <ons-carousel auto-refresh swipeable overscrollable item-width="50px">
-                <ons-carousel-item modifier="nodivider">
-                    <img src="assets/images/e12.png">
-                </ons-carousel-item>
-                <ons-carousel-item modifier="nodivider">
-                    <img src="assets/images/e13.png">
-                </ons-carousel-item>
-                <ons-carousel-item modifier="nodivider">
-                    <img src="assets/images/e14.png">
-                </ons-carousel-item>
-                <ons-carousel-item modifier="nodivider">
-                    <img src="assets/images/e6.png">
-                </ons-carousel-item>
-                <ons-carousel-item modifier="nodivider">
-                    <img src="assets/images/e7.png">
-                </ons-carousel-item>
-            </ons-carousel>
-        </div>
-
-    </div>
-
-          
           `
               $("#productdetail").append(Result)
           }
