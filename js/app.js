@@ -182,17 +182,12 @@ function getproductDetail(id) {
 
           if(doc.data().name == id){
               const Result = `
-           
-
             <ons-carousel class="carousel" swipeable auto-scroll id="carousel"">
               <ons-carousel-item>
                 <img src="${doc.data().posterDetail}">
               </ons-carousel-item>
               <ons-carousel-item>
                 <img src="${doc.data().posterDetail2}">
-              </ons-carousel-item>
-              <ons-carousel-item>
-                <img src="${doc.data().posterDetail3}">
               </ons-carousel-item>
             </ons-carousel>
     
@@ -220,10 +215,8 @@ function getproductDetail(id) {
             </div>
             
         </div>
-    
-
         <div class="area-btn">
-            <button type="button" id="btnPlayFav" class="cart-btn btn-lg btn-block">ADD TO CART</button>
+            <button type="button" id="btnCart" class="cart-btn btn-lg btn-block">ADD TO CART</button>
             <div id="showVideoFav"></div>
         </div>
 
@@ -239,6 +232,7 @@ function getproductDetail(id) {
       document.querySelector("#Navigator_search").pushPage("views/details.html");
   });
 }
+
 
 document.addEventListener('init', function (event) {
   var page = event.target;
@@ -257,6 +251,7 @@ document.addEventListener('init', function (event) {
       document.querySelector('#myNavigator').popPage();
     });
   }
+
 // Tab
 window.fn = {};
 
