@@ -1,7 +1,7 @@
-<ons-page id="search"> 
-    <ons-navigator swipeable id="Navigator_search" page="page2.html"></ons-navigator>
-    <template id="page2.html">
-       <ons-page id="search1">
+<ons-page id="searchpage"> 
+    <ons-navigator swipeable id="Navigator_search" page="search.html"></ons-navigator>
+    <template id="search.html">
+       <ons-page id="search">
           <p style="text-align: center; margin-top: 10px;">
              <ons-search-input id="searchInput" placeholder="Search" onchange="getfromSearch()"></ons-search-input>
           </p>
@@ -21,7 +21,7 @@
                 </ons-carousel-item>
     </ons-carousel>
     <br>
-             <ons-row id="searchItem" onclick="getproductDetail(this.id)"></ons-row>
+             <ons-row id="searchItem" ></ons-row>
        </ons-page>
     </template>  
  </ons-page>

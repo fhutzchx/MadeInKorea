@@ -16,65 +16,59 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
 
-    <ons-splitter>
-      <ons-splitter-side id="menu" side="right" width="220px" collapse swipeable>
-          <ons-page>
-              <ons-list style="background: black;">
-                  <ons-list-header class="menu_header">View by Entertainment</ons-list-header>
-                  <ons-list-item tappable><img class="logoenter" src="assets/images/1.png">Entertainment</ons-list-item>
-                  <ons-list-item tappable><img class="logoenter" src="assets/images/2.png">Entertainment</ons-list-item>
-                  <ons-list-item tappable><img class="logojyp" src="assets/images/3.png">Entertainment</ons-list-item>
-                  <ons-list-item tappable><img class="logoenter" src="assets/images/4.png">Entertainment</ons-list-item>
-                  <ons-list-item tappable><img class="logoenter" src="assets/images/5.png">Entertainment</ons-list-item>
-                  <ons-list-item tappable><img class="logoenter" src="assets/images/6.png">Entertainment</ons-list-item>
-                  <ons-list-item tappable><img class="logoenter" src="assets/images/7.png">Entertainment</ons-list-item>
-
-                  <ons-list-item tappable>Other</ons-list-item>
-              </ons-list>
-          </ons-page>
-      </ons-splitter-side>
-      <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
-  </ons-splitter>
-
-  
-      <ons-page>
-          <ons-toolbar>
-              <div class="left">
-                  <ons-back-button id="back"></ons-back-button>
-              </div>
-              <div class="right">
-                  <ons-toolbar-button onclick="fn.open()">
-                      <ons-icon icon="fa-bars" style="color: #EC1D8F;"></ons-icon>
-                  </ons-toolbar-button>
-              </div>
-              <div class="center">
-                  <img class="logo" src="assets/images/Logo.png">
-              </div>
-          </ons-toolbar>
-
-          <ons-page id="MIKR">
-
-              <ons-tabbar swipeable position="auto">
-                  <ons-tab page="views/home.html" class="bg-title">
-                      <ons-icon icon="md-home,material:md-home" size="25px"></ons-icon>
-                  </ons-tab>
-                  <ons-tab page="views/search.html" class="bg-title">
-                      <ons-icon icon="md-search,material:md-search" size="25px"></ons-icon>
-                  </ons-tab>
-                  <ons-tab page="views/cart.html" class="bg-title">
-                      <ons-icon icon="md-shopping-cart" size="25px"></ons-icon>
-                  </ons-tab>
-                  <ons-tab page="views/profile.html" class="bg-title">
-                      <ons-icon icon="md-account-circle" size="25px"></ons-icon>
-                  </ons-tab>
-
-              </ons-tabbar>
-          </ons-page>
-
-      </ons-page>
-  
+    <body>
+        <!-- <ons-navigator id="myNavigator" page="tabs.html"></ons-navigator>
+        <template id="tabs.html"> -->
+      <ons-page id="MIKR">
+             <ons-splitter>
+                     <ons-splitter-side id="menu" side="right" width="220px" collapse swipeable>
+                             <ons-page>
+                                    <ons-list style="background: black;">
+                                    <ons-list-header class="menu_header">View by Entertainment</ons-list-header>
+                                    <ons-list-item tappable><img class="logoenter" src="assets/images/1.png">Entertainment</ons-list-item>
+                                    <ons-list-item tappable><img class="logoenter" src="assets/images/2.png">Entertainment</ons-list-item>
+                                    <ons-list-item tappable><img class="logojyp"   src="assets/images/3.png">Entertainment</ons-list-item>
+                                    <ons-list-item tappable><img class="logoenter" src="assets/images/4.png">Entertainment</ons-list-item>
+                                    </ons-list>
+                            </ons-page>
+                    </ons-splitter-side>
+                                    <ons-splitter-content id="content"   ></ons-splitter-content>
+            </ons-splitter>
+ 
+            <ons-toolbar>
+                    <div class="left">
+                            <ons-back-button id="back"></ons-back-button>
+                    </div>
+                    <div class="right">
+                            <ons-toolbar-button onclick="fn.open()">
+                            <ons-icon icon="fa-bars" style="color: #EC1D8F;"></ons-icon>
+                            </ons-toolbar-button>
+                    </div>
+                    <div class="center">
+                            <img class="logo" src="assets/images/Logo.png">
+                    </div>
+            </ons-toolbar> 
+         
+          
+                        <ons-tabbar swipeable position="auto">
+                            <ons-tab page="views/home.html" class="bg-title">
+                            <ons-icon icon="md-home,material:md-home" size="25px"></ons-icon>
+                            </ons-tab>
+                            <ons-tab page="views/search.html" class="bg-title">
+                            <ons-icon icon="md-search,material:md-search" size="25px"></ons-icon>
+                            </ons-tab>
+                            <ons-tab page="views/cart.html" class="bg-title">
+                            <ons-icon icon="md-shopping-cart" size="25px"></ons-icon>
+                            </ons-tab>
+                            <ons-tab page="views/profile.html" class="bg-title">
+                            <ons-icon icon="md-account-circle" size="25px"></ons-icon>
+                            </ons-tab>
+                        </ons-tabbar>
+              
+            </ons-page>
+            <!-- </template> -->
+     </body>
   
     <!--=========================================== jQuery first, then Popper.js, then Bootstrap JS ===========================================-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -99,5 +93,5 @@
     <script src="/js/app.js"></script>
     <!--====================================================-->
 
-  </body>
+  
 </html>

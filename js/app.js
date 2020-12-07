@@ -4,10 +4,10 @@ const db = firebase.firestore();
 $(function() {
     document.addEventListener('init', function(event) {
         var page = event.target;
-         if (page.id === "home1") {
+         if (page.id === "home") {
           getAdvertising();
           getRecommend();
-        }else if (page.id ==="search1"){
+        }else if (page.id ==="search"){
           getEntertainment();
         }else if(page.id==="details"){
           getproductDetail();
@@ -21,7 +21,7 @@ $(function() {
       if (event.index == 0) {
           document.querySelector('#Navigator_home').popPage();
       } else if (event.index == 1) {
-          document.querySelector('#Navigator_search1').popPage();
+          document.querySelector('#Navigator_search').popPage();
       }else if (event.index == 2 ) {
         document.querySelector('#Navigator_cart').popPage();
     }
@@ -31,11 +31,7 @@ $(function() {
     })
 });
 
- function goBack() {
-    document.querySelector('#menu').close().then(function() {
-      document.querySelector('#myNavigator').popPage();
-    });
-  }
+
 
 
 function getAdvertising(){
@@ -57,7 +53,7 @@ function getRecommend(){
       querySnapshot.forEach(function (doc) {
         const Result = ` 
 
-        <div class="col-6 p-1">
+        <div class="col-6 p-1" id="${doc.data().name}"  onclick="getproductDetail(this.id)">
                <div class="photoproduct"> 
                     <div class="d-flex align-items-end">
                       <img src="${doc.data().posterURL}" class="productimg" style= "width:100%">
@@ -71,7 +67,7 @@ function getRecommend(){
     $(".productimg").click(function () {
       const productTarget = $(this).attr('id');
       getproductDetail(productTarget)
-      document.querySelector("#myNavigator").pushPage("views/details.html");
+      document.querySelector("#Navigator_home").pushPage("views/details.html");
     });
   });
 }
@@ -128,7 +124,7 @@ function getRecommend(){
         const result = `
         <ons-row class="rowmagin se" > 
         <ons-row style="margin: 5px;">
-            <ons-col class="text-center">
+            <ons-col class="text-center"id="${doc.data().name}"  onclick="getproductDetail(this.id)">
             <img src="${doc.data().posterURL}" width="75%" style="margin: 5px 5px;" alt="">
             </ons-col>
         <ons-col>
@@ -136,7 +132,7 @@ function getRecommend(){
             <p class="detail_search">${doc.data().description}</p>
             <p style="font-size:15px">`+ star +`</p>
             </ons-col>
-      </ons-row>`
+        </ons-row>`
       
         console.log(doc.data());
         $("#searchItem").append(result)
@@ -146,6 +142,7 @@ function getRecommend(){
       const productTarget = $(this).attr('id');
       getproductDetail(productTarget)
       document.querySelector("#Navigator_search").pushPage("views/details.html");
+      
     });
   });
 
@@ -162,10 +159,10 @@ function getEntertainment() {
               const Entertainment = doc.data().entertainment
               if (Entertainment.includes(targetEntertainment)) {
                   const result = `
-                      <ons-col class="col-6 p-1">
+                      <ons-col class="col-6 p-1" id="${doc.data().name}"  onclick="getproductDetail(this.id)">
                       <div class="containerH" >
                       <img src="${doc.data().posterURL}" class="productimg" width="100%">
-                   </div>
+                      </div>
                       </ons-col>
                       `
                   $("#searchItem").append(result);
@@ -179,23 +176,92 @@ function getEntertainment() {
       });
   })
 }
-function getproductDetail() {
+function getproductDetail(id) {
   db.collection("product").get().then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
 
-          
-        
+          if(doc.data().name == id){
               const Result = `
-            <ons-carousel class="carousel" swipeable auto-scroll id="${doc.data().name}">
-                <ons-carousel-item>
-                    <img src="${doc.data().posterURL}">
+           
+
+            <ons-carousel class="carousel" swipeable auto-scroll id="carousel"">
+              <ons-carousel-item>
+                <img src="${doc.data().posterDetail}">
+              </ons-carousel-item>
+              <ons-carousel-item>
+                <img src="${doc.data().posterDetail2}">
+              </ons-carousel-item>
+              <ons-carousel-item>
+                <img src="${doc.data().posterDetail3}">
+              </ons-carousel-item>
+            </ons-carousel>
+    
+          <div class="movie_info">
+          <div class="movie_synopsis Prompt"><h1>${doc.data().name}</h1>
+            <ons-row class="movie_general_info">
+
+                <ons-col class="stars">
+                    <ons-icon style="color: #EC1D8F" icon="fa-star"></ons-icon>
+                    <ons-icon style="color: #EC1D8F" icon="fa-star"></ons-icon>
+                    <ons-icon style="color: #EC1D8F" icon="fa-star"></ons-icon>
+                    <ons-icon style="color: #EC1D8F" icon="fa-star"></ons-icon>
+                    <ons-icon style="color: #EC1D8F" icon="fa-star"></ons-icon>
+                </ons-col>
+
+                <ons-col>${doc.data().entertainment}</ons-col>
+            </ons-row>
+
+            <div class="movie_cast">
+            ${doc.data().price} THB
+            </div>
+
+            <div class="detail_product">
+            ${doc.data().description}
+            </div>
+            
+        </div>
+    
+
+        <div class="area-btn">
+            <ons-button type="button" id="btnPlayFav" class="cart-btn btn-lg btn-block">ADD TO CART</ons-button>
+            <div id="showVideoFav"></div>
+        </div>
+
+        <div class="area-btn">
+            <ons-button type="button" id="btnPlayFav" class="buy-btn btn-lg btn-block">BUY WITH <i class="fa fa-google fa-fw"></i> PAY</ons-button>
+            <div id="showVideoFav"></div>
+        </div>
+
+
+        <div class="movie_list">
+            <div class="detail_product">You might also Like</div>
+            <ons-carousel auto-refresh swipeable overscrollable item-width="50px">
+                <ons-carousel-item modifier="nodivider">
+                    <img src="assets/images/e12.png">
+                </ons-carousel-item>
+                <ons-carousel-item modifier="nodivider">
+                    <img src="assets/images/e13.png">
+                </ons-carousel-item>
+                <ons-carousel-item modifier="nodivider">
+                    <img src="assets/images/e14.png">
+                </ons-carousel-item>
+                <ons-carousel-item modifier="nodivider">
+                    <img src="assets/images/e6.png">
+                </ons-carousel-item>
+                <ons-carousel-item modifier="nodivider">
+                    <img src="assets/images/e7.png">
                 </ons-carousel-item>
             </ons-carousel>
+        </div>
+
+    </div>
+
           
           `
               $("#productdetail").append(Result)
-      
+          }
       }); 
+      document.querySelector("#Navigator_search").pushPage("views/details.html");
   });
 }
 
@@ -211,7 +277,11 @@ document.addEventListener('init', function (event) {
   }
 });
 
-
+ function goBack() {
+    document.querySelector('#back').close().then(function() {
+      document.querySelector('#myNavigator').popPage();
+    });
+  }
 // Tab
 window.fn = {};
 
