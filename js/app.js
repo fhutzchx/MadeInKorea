@@ -10,7 +10,7 @@ $(function() {
         }else if (page.id ==="search"){
           getEntertainment();
         }else if(page.id==="cart"){
-          addcart();
+          getfromcart(); 
         }else if(page.id==="details"){
           getproductDetail();
         }
@@ -25,7 +25,7 @@ $(function() {
       } else if (event.index == 1) {
           document.querySelector('#Navigator_search').popPage();
       }else if (event.index == 2 ) {
-        // document.querySelector('#Navigator_cart').popPage();
+         document.querySelector('#Navigator_cart').popPage();
     }
     else if (event.index == 3 ) {
       document.querySelector('#Navigator_profile').popPage();
@@ -147,11 +147,10 @@ function getRecommend(){
       
     });
   });
-
 }
 
 
-// Search by Entertainment
+//Search by Entertainment
 function getEntertainment() {
   $("ons-carousel-item button").click(function () {
       $("#searchResult").val("")
@@ -179,6 +178,7 @@ function getEntertainment() {
       });
   })
 }
+
 function getproductDetail(id) {
   db.collection("product").get().then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
@@ -226,68 +226,68 @@ function getproductDetail(id) {
               $("#productdetail").append(Result)
           }
       }); 
-     
+   
   });
 }
 
-function addproduct(data) {
-  $("#btncart button").click(function () {
-      var user = firebase.auth().currentUser;
-      if (this.id == "addcart") {
-          $(this).html("Remove Cart")
-          $(this).attr("id", "Removecart")
-          db.collection("product").doc(data.id).update({
-              uid: firebase.firestore.FieldValue.arrayUnion(user.uid)
-          }).then(function () {
-              addcart();
-          });
-      } else if (this.id == "Removecart") {
-          $(this).html("Add Cart")
-          $(this).attr("id", "addcart")
-          db.collection("product").doc(data.id).update({
-              uid: firebase.firestore.FieldValue.arrayRemove(user.uid)
-          }).then(function () {
-              addcart();
-          });
-      }
-  })
-}
-function addcart(){
+// function addproduct(data) {
+//   $("#btncart button").click(function () {
+//       var user = firebase.auth().currentUser;
+//       if (this.id == "addcart") {
+//           $(this).html("Remove Cart")
+//           $(this).attr("id", "Removecart")
+//           db.collection("product").doc(data.id).update({
+//               uid: firebase.firestore.FieldValue.arrayUnion(user.uid)
+//           }).then(function () {
+//               addcart();
+//           });
+//       } else if (this.id == "Removecart") {
+//           $(this).html("Add Cart")
+//           $(this).attr("id", "addcart")
+//           db.collection("product").doc(data.id).update({
+//               uid: firebase.firestore.FieldValue.arrayRemove(user.uid)
+//           }).then(function () {
+//               addcart();
+//           });
+//       }
+//   })
+// }
+// function addcart(){
  
-      $("#noproduct").empty();
-      $("#productcart").empty();
-      var countcart = 0;
-      db.collection("product").get().then(function (querySnapshot) {
-          querySnapshot.forEach(function (doc) {
-              var user = firebase.auth().currentUser;
-              const getcart = doc.data().uid
-              if (getcart.indexOf(user.uid) != -1) {
-                  const result =
+//       $("#noproduct").empty();
+//       $("#productcart").empty();
+//       var countcart = 0;
+//       db.collection("product").get().then(function (querySnapshot) {
+//           querySnapshot.forEach(function (doc) {
+//               var user = firebase.auth().currentUser;
+//               const getcart = doc.data().uid
+//               if (getcart.indexOf(user.uid) != -1) {
+//                   const result =
                      
-                      `<div class="col-6" style ="padding-left:0px;padding-right:0px" >
-                          <div id="${doc.data().name}" class="imgcart d-flex align-items-end" style="background-image: url(${doc.data().posterURL}); " >
-                              <div class="movietextbg">
-                                  <div class="movietitle-Fav">${doc.data().description}</div>
-                              </div>
-                          </div>
-                      </div> `
-                  $("#productcart").append(result)
-                  countcart++
-              }
-          });
-          if (countcart < 1) {
-              const result =
+//                       `<div class="col-6" style ="padding-left:0px;padding-right:0px" >
+//                           <div id="${doc.data().name}" class="imgcart d-flex align-items-end" style="background-image: url(${doc.data().posterURL}); " >
+//                               <div class="movietextbg">
+//                                   <div class="movietitle-Fav">${doc.data().description}</div>
+//                               </div>
+//                           </div>
+//                       </div> `
+//                   $("#productcart").append(result)
+//                   countcart++
+//               }
+//           });
+//           if (countcart < 1) {
+//               const result =
                 
-                  `<div class="noproduct">No Product in cart</div> `
-              $("#noproduct").append(result)
-          }
-          $(".imgcart").click(function () {
-              const productTarget = $(this).attr('id');
-              getproductDetail(productTarget);
-              document.querySelector("#Navigator_home").pushPage("views/cart.html");
-          })
-      });
-}
+//                   `<div class="noproduct">No Product in cart</div> `
+//               $("#noproduct").append(result)
+//           }
+//           $(".imgcart").click(function () {
+//               const productTarget = $(this).attr('id');
+//               getproductDetail(productTarget);
+//               document.querySelector("#Navigator_home").pushPage("views/cart.html");
+//           })
+//       });
+// }
 
 document.addEventListener('init', function (event) {
   var page = event.target;
@@ -325,13 +325,46 @@ function addtocart(photo,name,price){
       }) 
       
         .then(function (docRef) {
-          console.log("สำเร็จ");
+          console.log("success");
         })
         .catch(function (error) {
           console.error("Error adding document: ", error);
         })
       }
     })
+}
+
+function deleted(id){
+  ons.notification.alert('ลบข้อมูลเรียบร้อยแล้ว');
+  $('#showShoppingCart').hide();
+  console.log(id);
+  db.collection("ShoppingCart").doc(id).delete();
+};
+
+function getfromcart() {
+  db.collection("Cart").get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+
+          
+              const Result = `
+            <ons-carousel class="carousel" swipeable auto-scroll">
+              <ons-carousel-item>
+                <img src="${doc.data().photo}">
+              </ons-carousel-item>
+            </ons-carousel>
+    
+          <div class="movie_info">
+          <div class="movie_synopsis Prompt"><h1>${doc.data().name}</h1>
+            <div class="movie_cast">
+            ${doc.data().price} THB
+            </div>
+            </div>
+       
+          `
+              $("#productcart").append(Result)
+      }); 
+    
+  });
 }
 
 document.addEventListener('init', function (event) {
@@ -358,4 +391,6 @@ document.addEventListener('init', function (event) {
     })
   }
 })
+
+
 
