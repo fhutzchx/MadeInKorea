@@ -219,7 +219,7 @@ function getproductDetail(id) {
             
         </div>
         <div class="area-btn">
-            <button type="button"  onclick="addtocart('${doc.data().posterURL}','${doc.data().name}','${doc.data().price}')" class="cart-btn btn-lg btn-block" >ADD TO CART</button>
+            <button type="button" onclick="addtocart('${doc.data().posterURL}','${doc.data().name}','${doc.data().price}')" class="cart-btn btn-lg btn-block" >ADD TO CART</button>
             <div id="showVideoFav"></div>
         </div>
           `
@@ -254,6 +254,7 @@ function addtocart(photo,name,price){
   (function (user) {
     var uid = user.uid;
     if (user) {
+
       console.log(uid);
       console.log(photo,name,price);
       
@@ -261,7 +262,7 @@ function addtocart(photo,name,price){
         uid: uid,
         productName: name,
         photo : photo,
-        price:price
+        price: price,
         
      
       }) 
@@ -282,26 +283,36 @@ function getfromcart() {
 
           
               const Result = `
-              
-            <ons-carousel class="carousel" swipeable auto-scroll" >
+              <hr>
+              <ons-row class="rowmagin" > 
+              <ons-row style="margin: 5px;">
                 <ons-col class="text-center">
-                <img src="${doc.data().photo}">
+                <img src="${doc.data().photo}" width="82%" style="margin: 5px 5px;" alt="">
                 </ons-col>
-            </ons-carousel>
 
+              <ons-col>
+                <p style="font-size:18px">${doc.data().productName}</p>
+                <p style="font-size:18px" class="detail_search">${doc.data().price} THB </p>
+              </ons-col>
+       
+            <div class="area-btn">
             <button type="button" id="${doc.id}" onclick="payment(id)" class="cart-btn btn-lg btn-block" >PAYMENT</button>
+            <br><br>
             <button type="button" id="${doc.id}" onclick="deleted(id)" class="cart-btn2 btn-lg btn-block" >DELETE</button>
-
-
+            </div>
+            <hr>
+              
+            
           `
               $("#showShoppingCart").append(Result)
+              
       }); 
     
   });
 }
 
 function deleted(id){
-  ons.notification.alert('Delete Success');
+  ons.notification.alert('Delete Success!');
   $('#showShoppingCart').hide();
   console.log(id);
   db.collection("Cart").doc(id).delete();
@@ -309,7 +320,7 @@ function deleted(id){
 
 
 function payment(id) {
-  ons.notification.alert('Payment Success');
+  ons.notification.alert('Payment Success!');
   $('#showShoppingCart').hide();
     db.collection("Cart").doc(id).delete();
 };
