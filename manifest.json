@@ -1,0 +1,26 @@
+{
+    "short_name": "MiKR",
+    "name": "Made In Korea",
+    "icons": [
+      {
+        "src": "/assets/images/icons/192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/assets/images/icons/256x256.png",
+        "type": "image/png",
+        "sizes": "256x256"
+      },
+      {
+        "src": "/assets/images/icons/512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+
+    ],
+    "start_url": "/index.html",
+    "background_color": "rgb(0, 0, 0)",
+    "display": "standalone",
+    "theme_color": "#EC1D8F"
+  }
