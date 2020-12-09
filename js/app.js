@@ -219,7 +219,7 @@ function getproductDetail(id) {
             
         </div>
         <div class="area-btn">
-            <button type="button"  onclick="addtocart('${doc.data().posterDetail}','${doc.data().name}','${doc.data().price}')" class="cart-btn btn-lg btn-block" >ADD TO CART</button>
+            <button type="button"  onclick="addtocart('${doc.data().posterURL}','${doc.data().name}','${doc.data().price}')" class="cart-btn btn-lg btn-block" >ADD TO CART</button>
             <div id="showVideoFav"></div>
         </div>
           `
@@ -230,64 +230,6 @@ function getproductDetail(id) {
   });
 }
 
-// function addproduct(data) {
-//   $("#btncart button").click(function () {
-//       var user = firebase.auth().currentUser;
-//       if (this.id == "addcart") {
-//           $(this).html("Remove Cart")
-//           $(this).attr("id", "Removecart")
-//           db.collection("product").doc(data.id).update({
-//               uid: firebase.firestore.FieldValue.arrayUnion(user.uid)
-//           }).then(function () {
-//               addcart();
-//           });
-//       } else if (this.id == "Removecart") {
-//           $(this).html("Add Cart")
-//           $(this).attr("id", "addcart")
-//           db.collection("product").doc(data.id).update({
-//               uid: firebase.firestore.FieldValue.arrayRemove(user.uid)
-//           }).then(function () {
-//               addcart();
-//           });
-//       }
-//   })
-// }
-// function addcart(){
- 
-//       $("#noproduct").empty();
-//       $("#productcart").empty();
-//       var countcart = 0;
-//       db.collection("product").get().then(function (querySnapshot) {
-//           querySnapshot.forEach(function (doc) {
-//               var user = firebase.auth().currentUser;
-//               const getcart = doc.data().uid
-//               if (getcart.indexOf(user.uid) != -1) {
-//                   const result =
-                     
-//                       `<div class="col-6" style ="padding-left:0px;padding-right:0px" >
-//                           <div id="${doc.data().name}" class="imgcart d-flex align-items-end" style="background-image: url(${doc.data().posterURL}); " >
-//                               <div class="movietextbg">
-//                                   <div class="movietitle-Fav">${doc.data().description}</div>
-//                               </div>
-//                           </div>
-//                       </div> `
-//                   $("#productcart").append(result)
-//                   countcart++
-//               }
-//           });
-//           if (countcart < 1) {
-//               const result =
-                
-//                   `<div class="noproduct">No Product in cart</div> `
-//               $("#noproduct").append(result)
-//           }
-//           $(".imgcart").click(function () {
-//               const productTarget = $(this).attr('id');
-//               getproductDetail(productTarget);
-//               document.querySelector("#Navigator_home").pushPage("views/cart.html");
-//           })
-//       });
-// }
 
 document.addEventListener('init', function (event) {
   var page = event.target;
@@ -334,38 +276,45 @@ function addtocart(photo,name,price){
     })
 }
 
-function deleted(id){
-  ons.notification.alert('ลบข้อมูลเรียบร้อยแล้ว');
-  $('#showShoppingCart').hide();
-  console.log(id);
-  db.collection("ShoppingCart").doc(id).delete();
-};
-
 function getfromcart() {
   db.collection("Cart").get().then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
 
           
               const Result = `
-            <ons-carousel class="carousel" swipeable auto-scroll">
-              <ons-carousel-item>
-                <img src="${doc.data().photo}">
-              </ons-carousel-item>
+              
+            <ons-carousel class="carousel" swipeable auto-scroll" >
+                <ons-col class="text-center">
+                <img src="${doc.data().photo}" width="75%" style="margin: 5px 5px;" alt="">
+                </ons-col>
             </ons-carousel>
-    
-          <div class="movie_info">
-          <div class="movie_synopsis Prompt"><h1>${doc.data().name}</h1>
-            <div class="movie_cast">
-            ${doc.data().price} THB
-            </div>
-            </div>
-       
+
+            <button type="button" id="${doc.id}" onclick="notify(id)" class="cart-btn btn-lg btn-block" >PAYMENT</button>
+            <button type="button" id="${doc.id}" onclick="deleted(id)" class="cart-btn2 btn-lg btn-block" >DELETE</button>
+
+
           `
-              $("#productcart").append(Result)
+              $("#showShoppingCart").append(Result)
       }); 
     
   });
 }
+
+function deleted(id){
+  ons.notification.alert('Delete Success');
+  $('#showShoppingCart').hide();
+  console.log(id);
+  db.collection("Cart").doc(id).delete();
+};
+
+
+function notify(id) {
+  ons.notification.alert('Payment Success');
+  $('#showShoppingCart').hide();
+    db.collection("Cart").doc(id).delete();
+};
+
+
 
 document.addEventListener('init', function (event) {
   var page = event.target;
