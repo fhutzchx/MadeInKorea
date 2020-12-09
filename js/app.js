@@ -285,11 +285,11 @@ function getfromcart() {
               
             <ons-carousel class="carousel" swipeable auto-scroll" >
                 <ons-col class="text-center">
-                <img src="${doc.data().photo}" width="75%" style="margin: 5px 5px;" alt="">
+                <img src="${doc.data().photo}">
                 </ons-col>
             </ons-carousel>
 
-            <button type="button" id="${doc.id}" onclick="notify(id)" class="cart-btn btn-lg btn-block" >PAYMENT</button>
+            <button type="button" id="${doc.id}" onclick="payment(id)" class="cart-btn btn-lg btn-block" >PAYMENT</button>
             <button type="button" id="${doc.id}" onclick="deleted(id)" class="cart-btn2 btn-lg btn-block" >DELETE</button>
 
 
@@ -308,7 +308,7 @@ function deleted(id){
 };
 
 
-function notify(id) {
+function payment(id) {
   ons.notification.alert('Payment Success');
   $('#showShoppingCart').hide();
     db.collection("Cart").doc(id).delete();
